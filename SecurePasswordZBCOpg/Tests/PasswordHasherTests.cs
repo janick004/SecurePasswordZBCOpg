@@ -70,8 +70,8 @@ namespace SecurePasswordZBCOpg.Tests
 		[Fact]
 		public void AuthService_ShouldRegisterAndLoginSuccessfully()
 		{
-			var repo = new UserRepository(_testFilePath);
-			var authService = new AuthService(repo, _passwordHasher);
+			UserRepository repo = new UserRepository(_testFilePath);
+			AuthService authService = new AuthService(repo, _passwordHasher);
 
 			string username = "testuser";
 			string password = "TestPassword123!";
@@ -85,8 +85,8 @@ namespace SecurePasswordZBCOpg.Tests
 		[Fact]
 		public void AuthService_ShouldFailLogin_WithIncorrectPassword()
 		{
-			var repo = new UserRepository(_testFilePath);
-			var authService = new AuthService(repo, _passwordHasher);
+			UserRepository repo = new UserRepository(_testFilePath);
+			AuthService authService = new AuthService(repo, _passwordHasher);
 
 			string username = "testuser2";
 			string password = "CorrectPassword";
@@ -101,8 +101,8 @@ namespace SecurePasswordZBCOpg.Tests
 		[Fact]
 		public void UserRepository_ShouldReturnNull_ForNonExistingUser()
 		{
-			var repo = new UserRepository(_testFilePath);
-			var user = repo.GetUserByUsername("nonexistent");
+			UserRepository repo = new UserRepository(_testFilePath);
+			User user = repo.GetUserByUsername("nonexistent");
 
 			Assert.Null(user);
 		}
